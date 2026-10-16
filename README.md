@@ -66,11 +66,11 @@ cv2.__version__
 
 | What it prints | Meaning |
 |---|---|
-| `'4.14.0'` (or another version starting with 4) | The right IDLE. Open a program and press F5 |
-| `ModuleNotFoundError: No module named 'cv2'` | The PC's own Python. Close this IDLE and use `OPEN_IDLE.bat` |
-| A version starting with 5 | Also the PC's own Python, which happens to have OpenCV 5. Close it and use `OPEN_IDLE.bat` |
+| `'4.14.0'` | The IDLE from `OPEN_IDLE.bat`. Open a program and press F5 |
+| Any other version, for example `'5.0.0'` | The PC's own Python, which happens to have OpenCV too. Programs 1 to 5 still work: with OpenCV 5.0.0 they produced exactly the same pictures as with 4.14.0 in the test |
+| `ModuleNotFoundError: No module named 'cv2'` | The PC's own Python, without OpenCV. Close this IDLE and use `OPEN_IDLE.bat` |
 
-The title bar ("IDLE Shell 3.12.8") does not tell them apart: the environment is built from the PC's Python 3.12, so both show the same version.
+The title bar ("IDLE Shell 3.12.8") does not tell them apart: the environment is built from the PC's Python 3.12, so both can show the same version.
 
 The same thing without the bat file, from Command Prompt inside this folder:
 
@@ -155,7 +155,7 @@ To be sure the library goes into the same Python that runs your program, always 
 
 If the lab PC has several Pythons, pick one with the launcher: write `py -3.12` wherever this file says `python`. Example: `py -3.12 -m pip install -r requirements.txt` and `py -3.12 Program_1_Canny_Edge_Detection.py`.
 
-`requirements.txt` says `opencv-python<5` on purpose. Plain `pip install opencv-python` now installs OpenCV 5.0. Programs 1 to 5 were tested only with OpenCV 4.
+`requirements.txt` says `opencv-python<5`, so the setup file installs OpenCV 4.14, the version used for the full record. Plain `pip install opencv-python` now installs OpenCV 5.0. Programs 1 to 5 work with both: run with 4.14.0 and with 5.0.0, all 18 picture windows were identical. OpenCV 5 matters only for Programs 10 and 11b of the full record, which use detectors that 5.0 removed.
 
 ## 6. Run a program and close it
 
