@@ -55,7 +55,22 @@ Open IDLE this way:
 4. In the code window press F5, or choose Run, then Run Module. The picture windows open. Click one of them and press any key to close them all.
 5. For the next program, repeat steps 3 and 4.
 
-To check that this is the right IDLE, type `import cv2` on the `>>>` line and press Enter. If the next line is another `>>>` with no red text, the library is there.
+The setup file installs OpenCV only into its own environment, `cv_lab_venv`. It does not add OpenCV to the PC's normal Python, so only the IDLE opened with `OPEN_IDLE.bat` has it.
+
+To check that this is the right IDLE, type these two lines on the `>>>` line, pressing Enter after each:
+
+```
+import cv2
+cv2.__version__
+```
+
+| What it prints | Meaning |
+|---|---|
+| `'4.14.0'` (or another version starting with 4) | The right IDLE. Open a program and press F5 |
+| `ModuleNotFoundError: No module named 'cv2'` | The PC's own Python. Close this IDLE and use `OPEN_IDLE.bat` |
+| A version starting with 5 | Also the PC's own Python, which happens to have OpenCV 5. Close it and use `OPEN_IDLE.bat` |
+
+The title bar ("IDLE Shell 3.12.8") does not tell them apart: the environment is built from the PC's Python 3.12, so both show the same version.
 
 The same thing without the bat file, from Command Prompt inside this folder:
 
